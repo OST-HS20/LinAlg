@@ -18,11 +18,11 @@ jobs:
       
     steps:
       - uses: actions/checkout@v2
-        id: latexparser
         with:
           submodules: recursive
 
       - uses: OST-HS20/latex-parser-action@master
+        id: latexparser
         with:
           latex_file: ${{env.ZF_NAME}}.tex
           command_name: versioninfo
