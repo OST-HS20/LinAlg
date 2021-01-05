@@ -28,7 +28,7 @@ jobs:
           command_name: versioninfo
           
       - name: The command value
-        run: echo "Value was ${{ steps.latexparser.outputs.value }}"
+        run: echo "Value was ${{steps.latexparser.outputs.value}}"
       # # Build latest Latex
       # - name: Compile LaTeX document
       #   uses: xu-cheng/latex-action@v2
