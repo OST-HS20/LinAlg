@@ -1,0 +1,61 @@
+\section{Eigenwert und Eigenvektor}
+Ein Vektor $\vec{v}$ heisst \textbf{Eigenvektor} der quadratischen Matrix $A$ zum \textbf{Eigenwert} $\lambda$, wenn: 
+\begin{align*}
+	A\vec{v} &= \lambda\vec{v} \Rightarrow (A - \lambda E)\vec{v} = 0  & (\vec{v} &\neq 0)
+\end{align*}
+
+\noindent
+Ein Eigenvektor $\vec{v}$ wird nur mit der Matrix $A$ gestreckt Es gibt maximal $n$ verschiedene Eigenwerte $\lambda$ jedoch unendlich viele Eigenvektoren $a \cdot \vec{v}$.
+
+\subsection{Eigenwertproblem}\label{charakteristischempolynom}
+Es werden $n$ Lösungen für $\lambda$ mit dem \textbf{charakteristischem Polynom} gesucht:
+\begin{equation}\label{eq:lambda}
+	\det(A - \textcolor{red}{\lambda} E) = 0
+\end{equation} Anschliessend kann jedes $\textcolor{red}{\lambda}_n$ in die Formel 
+\begin{equation}
+	(A - \textcolor{red}{\lambda}_n E)\vec{v}_n = 0
+\end{equation} eingesetzt werden um die Eigenvektoren zu bestimmen. \\Die Rechnung kann mit $A\vec{v} \eqq \lambda\vec{v}$ überprüft werden.
+\\ \\
+\noindent\textbf{Beispiel}
+$A = \begin{pmatrix} 0 & 3 \\ -2 & 5 \end{pmatrix}$
+\\ \\
+\noindent Eigenwert $\lambda_n$ mit (\ref{eq:lambda}) berechnen:
+\[\det\begin{pmatrix}
+	0 - \lambda & 3 \\
+	-2 & 5 - \lambda
+\end{pmatrix} \Rightarrow \lambda^2 - 5\lambda + 6 = 0\]
+\[{\scriptstyle \lambda_1 = 3; \lambda_2 = 2}\]
+\label{eigenvektor}
+\noindent Eigenvektor (für $\lambda = 2$) berechnen:
+\[
+\begin{array}{|cc|c|}
+	\hline
+	0 - 2 & 3 & 0 \\
+	-2 & 5 - 2 & 0 \\
+	\hline
+\end{array}
+\xrightarrow{Gauss}
+\begin{array}{|cc|c|}
+	\hline
+	1 & -\frac{3}{2} & 0 \\
+	0 & 0 & 0 \\
+	\hline
+\end{array}
+\]
+\[\Rightarrow v_2 = \begin{pmatrix} 3 \\ 2 \end{pmatrix} \quad v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\]
+
+\subsection{Eigenbasis $A'$}\label{eigenbasis}
+Für die Eigenbasis wird $T$ und $T^{-1}$ benötigt. $A' = TAT^{-1}$. $T$ ist die Zusammensetzung von allen Eigenvektoren $v_i$ (Siehe \verweiseref{eigenvektor}).
+
+\subsection{Diagonalisieren}\label{diagonalisieren}
+Um Matrix $A$ zu diagonalisieren, muss $A$ nach Matrix $D$ (mit Basen aus Eigenvektoren $\{\vec{v}_1,\dots\vec{v}_n\}$) transformiert werden. Dies ist nur möglich, wenn es eine Basis aus Eigenvektoren gibt. \\
+Basis-Transformation $T$ berechnen:
+\[T = \begin{pmatrix}
+	\vec{v}_1 & \dots & \vec{v}_n
+\end{pmatrix}^{-1}\]
+Zum Abschluss können die $\lambda$ vom Charakteristischem Polynom eingesetzt und $D$ kontrolliert werden:
+\[D = T^{-1}AT = \begin{pmatrix}
+	\lambda_1 & \dots & 0 \\
+	\vdots & \ddots & \vdots \\
+	0 & \dots & \lambda_n \\
+\end{pmatrix}\]

@@ -1,0 +1,90 @@
+\section{Determinante}\label{detmenge}
+
+\subsection{Definition \& Eigenschaften}
+\begin{itemize}[nosep]
+	\item Ist $A$ regulär: $\det(A) \neq 0$\\
+	      Ist $A$ singulär: $\det(A) = 0$
+	\item Matrix $A$ mit zwei gleichen Spalten/Zeilen, dann $\det(\vec{a}, \vec{b}, \vec{a}) = 0$
+	\item Matrix $A$ mit Nullzeile/Nullspalte, dann $\det(A) = 0$
+	\item $\det(E) = 1$
+	\item $\det(A \cdot B) = \det(A) \cdot \det(B)$
+\end{itemize}
+
+\subsection{Gauss}
+Summe von allen Pivot-Elemente welche herausgenommen (dividiert) wurden. \textit{Achtung}: Bei Zeilen tauschen Summe mit (-1) Multiplizieren!
+\[
+	\begin{vmatrix}
+		\circledr{2} & 2 & 4 \\
+		4 & 5 & 6 \\
+		7 & 8 & 5 \\
+	\end{vmatrix}
+	\rightarrow
+	2 \cdot \begin{vmatrix}
+		1 & 1 & 2 \\
+		0 & \circledr{1} & -2 \\
+		0 & 1 & -9 \\
+	\end{vmatrix}
+	\rightarrow
+	2 \cdot 1 \cdot \begin{vmatrix}
+	1 & 1 & 2 \\
+	0 & 1 & -2 \\
+	0 & 0 & \circledr{-7} \\
+\end{vmatrix}
+\]
+
+Determinante $2 \cdot 1 \cdot (-7) = -14$
+
+\subsection{Entwicklungssatz}
+Mit Hilfe des Entwicklungssatz können Determinanten grosser Matrizen auch von Hand berechnet werden. Dafür sollte eine Zeile oder Spalte mit möglichst vielen Nullen gewählt werden.
+\begin{enumerate}[nosep]
+	\item Zeile o. Spalte auswählen
+	\item Erstes Pivot-Element herausnehmen
+	\item Zeile und Spalte des gewählten Pivot abdecken
+	\item Elemente mit der Determinante der nicht abgedeckten Elemente multiplizieren
+	\item Schritt 2-5 Wiederholen und zum 1. Element addieren/subtrahieren ($\rightarrow$ Vorzeichen-Matrix) \\
+	$\begin{array}{|c|c|c|c|}
+		\hline
+		+ & - & + & - \\ \hline
+		- & + & - & + \\ \hline
+		+ & - & + & - \\ \hline
+		- & + & - & + \\ \hline
+	\end{array}$
+\end{enumerate}
+
+\noindent \\ \\ \textbf{Beispiel} (Zeile): 
+\[
+	\begin{vmatrix}
+		a & b & c & d \\
+		\textcolor{red}{e} & \textcolor{red}{f} & \textcolor{red}{0} & \textcolor{red}{0} \\
+		i & j & k & l \\
+		m & n & o & p
+	\end{vmatrix} = -e
+	\begin{vmatrix}
+		b & c & d \\
+		j & k & l \\
+		n & o & p
+	\end{vmatrix} +f
+	\begin{vmatrix}
+		a & c & d \\
+		i & k & l \\
+		m & o & p
+	\end{vmatrix}
+\]
+
+\subsection{Spezialfälle}
+\subsubsection{2x2 Matrix}
+\[
+	det\begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix} = ad - bc
+\]
+
+\subsubsection{3x3 Matrix (Sarrus'sche Formel)}
+\[
+det\begin{pmatrix}
+	a & b & c \\
+	d & e & f \\
+	g & h & i
+\end{pmatrix} = aei + bfg + cdh - ceg - afh - bdi
+\]

@@ -1,0 +1,161 @@
+\section{Matrixzerlegung}
+\subsection{LU- und LR-Zerlegung}
+Die \textbf{LU}-Zerlegung von $A$ wird durch den Gauss-Algorithmus gefunden. Die entsprechende Vorwärts-Reduktion wird in die $L$ Matrix eingesetzt. Die rechte obere Ecke am ende ist die $U$ Matrix. Kann überprüft werden durch das Multiplizieren von $A = LU$.
+\\ \\
+Die \textbf{LR}-Zerlegung ist identisch zu LU, jedoch wird hier zusätzlich die Diagonalmatrix $D$ berechnet, um $L'$ und $R$ zu erhalten.
+\\ \\
+\noindent\textbf{Beispiel}
+
+\[
+A = \begin{pmatrix}
+	3 & 3 &-3 \\
+	-6 & -4 & 2 \\
+	3 & 13 & -18
+\end{pmatrix}
+\]
+
+\noindent LU
+{\tiny Die $1$ sind in der $U$ Matrix enthalten.}
+\[
+\begin{array}{|ccc|}
+	\hline
+	\textcolor{blue}{3} & 3 &-3 \\
+	\textcolor{blue}{-6} & -4 & 2 \\
+	\textcolor{blue}{3} & 13 & -18 \\ 
+	\hline
+\end{array}
+\rightarrow
+\begin{array}{|ccc|}
+	\hline
+	1 & 1 &-1 \\
+	0 & \textcolor{green}{-2} & -4 \\
+	0 &\textcolor{green}{10} & -15 \\
+	\hline
+\end{array}
+\rightarrow
+\begin{array}{|ccc|}
+	\hline
+	1 & 1 &-1 \\
+	0 & 1 & -2 \\
+	0 & 0 & \textcolor{red}{5}  \\
+	\hline
+\end{array}
+\]
+\[
+L = \begin{pmatrix}
+	\textcolor{blue}{3} & 0 &0 \\
+	\textcolor{blue}{-6} & \textcolor{green}{-2} & 0 \\
+	\textcolor{blue}{3} & \textcolor{green}{10} &  \textcolor{red}{5}
+\end{pmatrix}
+\\
+U = \begin{pmatrix}
+	1 & 1 & -1 \\
+	0 & 1 & -2 \\
+	0 & 0 & 1
+\end{pmatrix}
+\] 
+
+\hrule\vspace{0.2cm}
+
+\noindent LR
+{\tiny Die $1$ sind in der $L$ Matrix enthalten.}
+\[
+L \xrightarrow{Diag. Pivots} D = \begin{pmatrix}
+	\textcolor{blue}{3} & 0 &0 \\
+	0 & \textcolor{green}{-2} & 0 \\
+	0 & 0 & \textcolor{red}{5}
+\end{pmatrix}
+\]
+
+\[
+L' = LD^{-1} = \begin{pmatrix}
+	1 & 0 & 0 \\ 
+	-2 & 1 & 0 \\
+	1 & 5 & 1
+\end{pmatrix} 
+\quad
+R = DU = \begin{pmatrix}
+	3 & 3 & -3 \\
+	0 & 2 & -4 \\
+	0 & 0 & 5
+\end{pmatrix}
+\]
+
+\subsection{Cholesky-Zerlegung}
+Nur für symmetrische und positiv definierte Matrizen.
+
+\begin{align*}
+	A &= \begin{pmatrix}
+		a_{1,1}    & a_{1,2} & a_{1,3} \\
+		& a_{2,2} & a_{2,3} \\
+		\text{sym} &         & a_{3,3} \\
+	\end{pmatrix} = \underbrace{LL^T}_{Zerlegung} \\
+	L &= 
+	\begin{pmatrix}
+		l_{1,1} & 0 & 0 \\
+		l_{1,2} & l_{2,2} & 0 \\
+		l_{1,3} & l_{2,3} & l_{3,3} \\
+	\end{pmatrix}
+\end{align*}
+
+
+\begin{align*}
+	l_{1,1} &= \sqrt{a_{1,1}} &\qquad l_{1,2} &= \frac{a_{1,2}}{l_{1,1}} \\
+	l_{1,3} &= \frac{a_{1,3}}{l_{1,1}} &\qquad l_{2,2} &= \sqrt{a_{2,2} - l_{1,2}^2} \\
+	l_{2,3} &= \frac{a_{2,3} - l_{1,2} \cdot l_{1,3}}{l_{2,2}} &\qquad l_{3,3} &= \sqrt{a_{3,3} - l_{1,3}^2 - l_{2,3}^2} \\
+\end{align*}
+
+\subsection{QR-Zerlegung (Gram-Schmidt)}
+Die Matrix $Q$ ist orthogonal und die $R$ eine obere Rechtecks-Matrix.
+\[A = \begin{pmatrix}
+	-1 & 0 & 4 \\
+	2 & 4 & -3 \\
+	2 & 5 & 2
+\end{pmatrix} = Q \cdot R \]
+
+\noindent $A$ orthogonalisieren (Siehe \verweiseref{orthogonalisieren}) und $R = Q^{T}A = Q^{-1}A$ berechnen. Achtung: Alle orthogonalisierten Vektoren müssen normalisiert sein $\vec{v}_n = \frac{\vec{v}_n}{|\vec{v}_n|}$ Matrix $Q$ muss 
+
+
+\subsection{Singulärwertzerlegung}
+Die Singulärwertzerlegung zerlegt die Matrix $A$ in $A = U\Sigma V^T$. Wobei $\Sigma$ die Streckungsfaktoren (die Singulärwerte), $U$ die orthogonalisierten Basis-Vektoren und $V$ die ursprünglichen Koordinaten sind.
+
+Beispiel:
+\[A = \begin{pmatrix}
+	1 & 0 \\
+	0 & 1 \\
+	1 & 1
+\end{pmatrix}
+\xrightarrow{\text{Range der Matrix A}}
+\Sigma = \begin{pmatrix}
+	s_1 & 0 \\
+	0 & s_2 \\
+	0 & 0
+\end{pmatrix}
+\]
+
+\noindent Die Matrix $\Sigma$ kann durch das charakteristische Polynom (Siehe \verweiseref{charakteristischempolynom}) mit $\lambda \rightarrow \det(AA^T - \lambda E) = 0$ berechnet werden. \[\lambda = \{\lambda_1 = 0; \lambda_2 = 3; \lambda_3 = 1\}\]
+
+\noindent Die entsprechenden $\lambda$ können der \textit{grösse nach} absteigend sortiert, die $\sqrt{\lambda_n}$ gezogen und als $s_n$ in die Matrix $\Sigma$ eingesetzt werden. Um $U$ und $V$ zu bestimmen müssen $U = \text{eigVc}(AA^T)$ und $V = \text{eigVc}(A^TA)$ gesucht werden (Siehe auch Eigenvektoren). Achtung: entsprechende Eigenvektoren müssen normiert sein!
+
+\[\Sigma = \begin{pmatrix}
+	\sqrt{3} & 0 \\
+	0 & \sqrt{1} = 1 \\
+	0 & 0
+\end{pmatrix}
+ U = \begin{pmatrix}
+	\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{3}} \\
+	\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{3}} \\
+	\frac{2}{\sqrt{6}} & 0 & -\frac{1}{\sqrt{3}} \\
+\end{pmatrix}
+ V = \begin{pmatrix}
+	\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+	\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}  \\
+\end{pmatrix}
+\]
+
+\subsection{Pseudoinverse}
+Die Pseudoinverse $A^{\dagger}$ kann verwendet werden, um unterbestimmte Gleichungssysteme zu lösen (Überbestimmte können mit \verweiseref{leastsquare} gelöst werden). Die Pseudoinverse hat den Vorteil, dass der gefundene Lösungsvektor immer Minimal ist.
+
+
+\[\Sigma{\dagger} = \text{Inverse (soweit möglich)} \Sigma^{-1}\]
+\[A^{\dagger} = V\Sigma^{\dagger}U^T\]
