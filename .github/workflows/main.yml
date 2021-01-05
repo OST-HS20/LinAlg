@@ -18,13 +18,17 @@ jobs:
       
     steps:
       - uses: actions/checkout@v2
+        id: latexparser
         with:
           submodules: recursive
 
-      - uses: OST-HS20/latex-parser-action
+      - uses: OST-HS20/latex-parser-action@master
         with:
           latex_file: ${{env.ZF_NAME}}.tex
-
+          command_name: versioninfo
+          
+      - name: The command value
+        run: echo "Value was ${{ steps.latexparser.outputs.value }}"
       # # Build latest Latex
       # - name: Compile LaTeX document
       #   uses: xu-cheng/latex-action@v2
