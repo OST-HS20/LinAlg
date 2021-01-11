@@ -152,21 +152,15 @@ Auch beim Vektorprodukt ergibt sich ein Zwischenwinkel:
 \[\sin\alpha = \frac{\left|\vec{a}_0 \times \vec{a}_1\right|}{\left|\vec{a}_0\right| \cdot \left|\vec{a}_1\right|}\]
 
 \subsection{Spur}\label{drehwinkel}
-Die Spur ist die Summe der Diagonal-Elemente.
-Beispiel:
+Die Spur ist die Summe der Diagonal-Elemente. In $\mathbb{R}^3$ gilt daher (Spur ist in allen Achsen gleich):
 \[
-	D_\alpha = \begin{Bmatrix}
+	D_z = \begin{pmatrix}
 		\cos(\alpha) & -\sin(\alpha) & 0 \\
 		\sin(\alpha) & \cos(\alpha) & 0 \\
 		0 & 0 & 1
-	\end{Bmatrix}
+	\end{pmatrix} \rightarrow  Spur(D_\alpha) = 2 \cdot \cos(\alpha) + 1 
 \]
-
-\[
-    Spur(D_\alpha) = 2 \cdot \cos(\alpha) + 1 \\
-	\Rightarrow \\
-	\cos(\alpha) = \frac{Spur(D_\alpha) - 1}{2}
-\]
+\noindent Daraus ergibt sich die allgemeine Formel für $\mathbb{R}^3$: \\$\cos(\alpha) = \frac{Spur(D_\alpha) - 1}{2}$. \\\textbf{Achtung} in $\mathbb{R}^2$ ist es $\cos(\alpha) = \frac{Spur(D_\alpha)}{2}$
 
 \subsection{Spiegelung}
 Um eine Abbildung zu Spiegeln, muss ein Normalvektor $\vec{n}$ zur Spiegelachse existieren werden.

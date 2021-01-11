@@ -44,18 +44,19 @@ $A = \begin{pmatrix} 0 & 3 \\ -2 & 5 \end{pmatrix}$
 \]
 \[\Rightarrow v_2 = \begin{pmatrix} 3 \\ 2 \end{pmatrix} \quad v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\]
 
-\subsection{Eigenbasis $A'$}\label{eigenbasis}
-Für die Eigenbasis wird $T$ und $T^{-1}$ benötigt. $A' = TAT^{-1}$. $T$ ist die Zusammensetzung von allen Eigenvektoren $v_i$ (Siehe \verweiseref{eigenvektor}).
+\subsection{Eigenbasis}\label{eigenbasis}
+Die Eigenbasis $A'$ wird gefunden, indem allen Eigenvektoren $v_i$ (Siehe \verweiseref{eigenvektor}) zusammengesetzt werden. Dies ist nur möglich, wenn für alle Unterräume $\mathbb{R}^n$ ein Eigenvektor verfügbar ist.
 
 \subsection{Diagonalisieren}\label{diagonalisieren}
-Um Matrix $A$ zu diagonalisieren, muss $A$ nach Matrix $D$ (mit Basen aus Eigenvektoren $\{\vec{v}_1,\dots\vec{v}_n\}$) transformiert werden. Dies ist nur möglich, wenn es eine Basis aus Eigenvektoren gibt. \\
-Basis-Transformation $T$ berechnen:
-\[T = \begin{pmatrix}
-	\vec{v}_1 & \dots & \vec{v}_n
-\end{pmatrix}^{-1}\]
-Zum Abschluss können die $\lambda$ vom Charakteristischem Polynom eingesetzt und $D$ kontrolliert werden:
-\[D = T^{-1}AT = \begin{pmatrix}
+Um Matrix $A$ zu diagonalisieren, muss eine Matrix $D$ mithilfe des Charakteristischem Polynom gefunden werden. $A$ kann nur diagonalisiert werden, wenn eine Eigenbasis existiert. \\
+Die Diagonalmatrix $D$ mithilfe von $\lambda_n$ des charakteristischem Polynom berechnen:
+\[D = \begin{pmatrix}
 	\lambda_1 & \dots & 0 \\
 	\vdots & \ddots & \vdots \\
 	0 & \dots & \lambda_n \\
 \end{pmatrix}\]
+\noindent $D$ kann mithilfe der Transformationsmatrix $T$ kontrolliert werden.  Wobei $T$ die Eigenbasis $T = \{\vec{v}_1,\dots\vec{v}_n\}$ ist:
+\[
+D = TAT^{-1} \qquad T = \begin{pmatrix}
+	\vec{v}_1 & \dots & \vec{v}_n
+\end{pmatrix}^{-1}\]

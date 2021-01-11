@@ -229,5 +229,10 @@ Es gibt $\infty$-Lösungen, eine zB bei $\lambda_3 = 1; \lambda_2 = -2; \lambda_
 	\item $A(\lambda x) = \lambda(Ax)$
 	\item $A(x + y) = Ax + Ay$
 \end{itemize}
-
-
+~\\
+\noindent\textbf{Achtung}: Beim Multiplizieren von Matrizen ist die Reihenfolge zwingend! zB wird $\textcolor{blue}{T}$ auf beiden Seiten \underline{Rechts} hinzugefügt!
+\begin{align*}
+	D &= TAT^{-1}  &| \quad \cdot \textcolor{red}{T^{-1}}\\
+	\textcolor{red}{T^{-1}}D &= \textcolor{red}{T^{-1}}TAT^{-1}  &| \quad \cdot \textcolor{blue}{T}\\
+	T^{-1}D\textcolor{blue}{T} &= \underbrace{T^{-1}T}_{E}A\underbrace{T^{-1}\textcolor{blue}{T}}_{E} = A
+\end{align*}
