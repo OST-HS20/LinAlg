@@ -152,15 +152,17 @@ Auch beim Vektorprodukt ergibt sich ein Zwischenwinkel:
 \[\sin\alpha = \frac{\left|\vec{a}_0 \times \vec{a}_1\right|}{\left|\vec{a}_0\right| \cdot \left|\vec{a}_1\right|}\]
 
 \subsection{Spur}\label{drehwinkel}
-Die Spur ist die Summe der Diagonal-Elemente. In $\mathbb{R}^3$ gilt daher (Spur ist in allen Achsen gleich):
+Die Spur von $D_z$ ist die Summe der Diagonal-Elemente. In $\mathbb{R}^3$ gilt daher immer (Spur ist für alle Achsendrehungen gleich):
 \[
 	D_z = \begin{pmatrix}
 		\cos(\alpha) & -\sin(\alpha) & 0 \\
 		\sin(\alpha) & \cos(\alpha) & 0 \\
 		0 & 0 & 1
-	\end{pmatrix} \rightarrow  Spur(D_\alpha) = 2 \cdot \cos(\alpha) + 1 
+	\end{pmatrix} \rightarrow  Spur(D_z) = 2 \cdot \cos(\alpha) + 1 
 \]
-\noindent Daraus ergibt sich die allgemeine Formel für $\mathbb{R}^3$: \\$\cos(\alpha) = \frac{Spur(D_\alpha) - 1}{2}$. \\\textbf{Achtung} in $\mathbb{R}^2$ ist es $\cos(\alpha) = \frac{Spur(D_\alpha)}{2}$
+\noindent Damit kann die allgemeine Formel für den Drehwinkel in $\mathbb{R}^3$ berechnet werden:
+\[\alpha = \arccos\left(\frac{Spur(D_n) - 1}{2}\right)\]
+\textbf{Achtung} in $\mathbb{R}^2$ ist es $\alpha = \arccos\left(\frac{Spur(D_n)}{2}\right)$
 
 \subsection{Spiegelung}
 Um eine Abbildung zu Spiegeln, muss ein Normalvektor $\vec{n}$ zur Spiegelachse existieren werden.

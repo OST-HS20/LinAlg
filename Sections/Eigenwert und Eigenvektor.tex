@@ -19,14 +19,14 @@ Es werden $n$ Lösungen für $\lambda$ mit dem \textbf{charakteristischem Polyno
 \noindent\textbf{Beispiel}
 $A = \begin{pmatrix} 0 & 3 \\ -2 & 5 \end{pmatrix}$
 \\ \\
-\noindent Eigenwert $\lambda_n$ mit (\ref{eq:lambda}) berechnen:
+\noindent \textbf{Eigenwert} $\lambda_n$ mit (Formel (\ref{eq:lambda})) berechnen:
 \[\det\begin{pmatrix}
 	0 - \lambda & 3 \\
 	-2 & 5 - \lambda
 \end{pmatrix} \Rightarrow \lambda^2 - 5\lambda + 6 = 0\]
 \[{\scriptstyle \lambda_1 = 3; \lambda_2 = 2}\]
 \label{eigenvektor}
-\noindent Eigenvektor (für $\lambda = 2$) berechnen:
+\noindent \textbf{Eigenvektor} (für $\lambda = 2$) berechnen:
 \[
 \begin{array}{|cc|c|}
 	\hline
@@ -45,7 +45,7 @@ $A = \begin{pmatrix} 0 & 3 \\ -2 & 5 \end{pmatrix}$
 \[\Rightarrow v_2 = \begin{pmatrix} 3 \\ 2 \end{pmatrix} \quad v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\]
 
 \subsection{Eigenbasis}\label{eigenbasis}
-Die Eigenbasis $A'$ wird gefunden, indem allen Eigenvektoren $v_i$ (Siehe \verweiseref{eigenvektor}) zusammengesetzt werden. Dies ist nur möglich, wenn für alle Unterräume $\mathbb{R}^n$ ein Eigenvektor verfügbar ist.
+Die Eigenbasis $B$ wird gefunden, indem allen Eigenvektoren $v_i$ (Siehe \verweiseref{eigenvektor}) zusammengesetzt werden (Die Reihenfolge bestimmt dabei die Ausrichtung). Dies ist nur möglich, wenn für alle Unterräume $\mathbb{R}^n$ ein Eigenvektor verfügbar ist.
 
 \subsection{Diagonalisieren}\label{diagonalisieren}
 Um Matrix $A$ zu diagonalisieren, muss eine Matrix $D$ mithilfe des Charakteristischem Polynom gefunden werden. $A$ kann nur diagonalisiert werden, wenn eine Eigenbasis existiert. \\
